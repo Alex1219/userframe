@@ -26,7 +26,7 @@ class sql{
 			var $dbconn;
 		private $debug;
 
-		public function __construct($settings, $debug){
+		public function __construct($settings, $debug = false){
 		
 			$this->dbdsn = "%s:dbname=%s;host=%s;charset=%s;";
 			$this->dbdsn = sprintf($this->dbdsn,$settings['dbtype'],$settings['dbname'],$settings['dbhost'], $settings['charset']);
@@ -46,6 +46,64 @@ class sql{
 						}
 			
 
+		}
+		
+		
+		public function login($username, $password){
+		
+		
+			$query = $this->dbconn->prepare("SELECT username,password FROM `users` WHERE LOWER(`username`) = LOWER(:username) AND `password` = :password");
+				$query->bindValue(':username', $username, PDO::PARAM_STR);
+				$query->bindValue(':password', $password, PDO::PARAM_STR);
+					$query->execute();
+					
+					
+				
+					
+
+					
+				
+					
+					if ( $query->rowCount() != false){
+
+					print_r("login successful");
+					
+					}
+		
+		
+		
+		
+		}
+		
+		
+		
+				public function register($username, $password){
+		
+		
+		//check if username exists already
+			$query = $this->dbconn->prepare("SELECT username FROM `users` WHERE LOWER(`username`) = LOWER(:username)");
+				$query->bindValue(':username', $username, PDO::PARAM_STR);
+					$query->execute();
+					
+					
+			
+				
+					//if username not found create new entry into database!
+					if ( $query->rowCount() == false){
+						
+					$query = "";
+					$query = $this->dbconn->prepare("INSERT INTO `users` VALUES (:username, :password)");
+					$query->bindValue(':username', $username, PDO::PARAM_STR);
+					$query->bindValue(':password', $password, PDO::PARAM_STR);
+					$query->execute(); 
+					
+					
+					
+					}
+		
+		
+		
+		
 		}
 
 
