@@ -1,6 +1,6 @@
 userframe
 =========
-Status: Concept
+Status: ALPHA: basic password security and database interaction added
 
 
 What is userframe?
