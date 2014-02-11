@@ -17,8 +17,18 @@
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 */
 
+
+
+
 $config = array();
 $config['db'] = array();
+
+
+$config['dir'] = "/";
+
+$config['salt'] = "|Glk(J#tQcij:kqb%*AbfGGSt0u&nDHnENe|Ruzc%bNQ%raJ|ZeVeqM_XXPYwYCT(}OJJO(5b82f0sO%_*OL?q?Z_d}VP_EUx^o*";
+
+$config['hash'] = "h6Nr(AXfgcof>@tSz!Msv)Om{AEs7duzG>Cgxqb%7kxJ(!{6S6<6Inm*ZTi572C1S&W6tjY1muFRN!%1sSx3gNBQQbT0%59xiYln";
 
  //debug mode shows information which helps determine development problems easily. Not for production websites.
 $config['debug'] = true;
