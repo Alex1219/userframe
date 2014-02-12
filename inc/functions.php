@@ -47,6 +47,25 @@
 
 
 		}
+		
+		
+		function  validate_email($email) {
+		/*
+		Returns false if the argument is not in the form of an e-mail. Otherwise it returns the e-mail back. 
+		*/
+		
+		$flag = false;
+		
+		if  (filter_var($email, FILTER_VALIDATE_EMAIL)) { 
+			$flag = $email;
+			return $flag; }
+		else {
+			return $flag;
+		}
+		
+	        }
+	                             
+	   
 
 
 
