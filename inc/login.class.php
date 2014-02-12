@@ -34,14 +34,14 @@
 	
 	class register {
 			private $dbconn;
-		public function __construct($username, $password) {
+		public function __construct($username, $password,$email) {
 			
 			require("lib/sql.class.php");
 			require("config.php");
 			
 			
 			$dbconn = new sql($config['db'], $config['debug']);	
-			$dbconn->register($username, $password);
+			$dbconn->register($username, $password,$email);
 			
 			
 		}
