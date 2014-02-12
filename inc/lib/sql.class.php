@@ -77,7 +77,7 @@ class sql{
 		
 		
 		
-				public function register($username, $password){
+				public function register($username, $password,$email){
 		
 		
 		//check if username exists already
@@ -92,9 +92,10 @@ class sql{
 					if ( $query->rowCount() == false){
 						
 					$query = "";
-					$query = $this->dbconn->prepare("INSERT INTO `users` VALUES (:username, :password)");
+					$query = $this->dbconn->prepare("INSERT INTO `users` VALUES (:username, :password,:email)");
 					$query->bindValue(':username', $username, PDO::PARAM_STR);
 					$query->bindValue(':password', $password, PDO::PARAM_STR);
+					$query->bindValue(':password', $email, PDO::PARAM_STR);
 					$query->execute(); 
 					
 					
